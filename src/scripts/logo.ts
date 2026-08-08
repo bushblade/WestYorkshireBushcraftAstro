@@ -18,7 +18,15 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
 		strokeDashoffset: 100,
 		autoAlpha: 0,
 	});
-	gsap.to(paths, {
+	gsap.to(".logo-tree-left path", {
+		strokeDashoffset: 0,
+		autoAlpha: 1,
+		duration: 2.2,
+		delay: 0.8,
+		stagger: 0.18,
+		ease: "power2.inOut",
+	});
+	gsap.to(".logo-tree-right path", {
 		strokeDashoffset: 0,
 		autoAlpha: 1,
 		duration: 2.2,
