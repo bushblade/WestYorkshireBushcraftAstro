@@ -43,7 +43,6 @@ const images = [
   .switcher {
     position: relative;
     margin: auto;
-    height: 100%;
     overflow: hidden;
     border: none;
     border-radius: 0.5rem;
@@ -56,6 +55,7 @@ const images = [
   .spacer :global(img) {
     min-width: 300px;
     width: 100%;
+    height: auto;
   }
 
   .layer {
@@ -69,6 +69,7 @@ const images = [
   .layer :global(img) {
     min-width: 300px;
     width: 100%;
+    height: auto;
   }
 
   .layer[data-active='false'] {

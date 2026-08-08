@@ -37,16 +37,41 @@ const cards = [
 </div>
 
 <div class="grid">
-  {cards.map((card, i) => (
-    <div class={['cell', i % 2 === 0 ? 'left' : 'right'].join(' ')}>
-      <Card
-        title={card.title}
-        link={card.link}
-        image={images[card.image].src}
-        alt={`${card.title} gallery`}
-      />
-    </div>
-  ))}
+  <div class="cell left">
+    <Card
+      title={cards[0].title}
+      link={cards[0].link}
+      image={images[cards[0].image].src}
+      alt={`${cards[0].title} gallery`}
+    />
+  </div>
+  <div class="cell right">
+    <Card
+      title={cards[1].title}
+      link={cards[1].link}
+      image={images[cards[1].image].src}
+      alt={`${cards[1].title} gallery`}
+    />
+  </div>
+</div>
+
+<div class="grid">
+  <div class="cell left">
+    <Card
+      title={cards[2].title}
+      link={cards[2].link}
+      image={images[cards[2].image].src}
+      alt={`${cards[2].title} gallery`}
+    />
+  </div>
+  <div class="cell right">
+    <Card
+      title={cards[3].title}
+      link={cards[3].link}
+      image={images[cards[3].image].src}
+      alt={`${cards[3].title} gallery`}
+    />
+  </div>
 </div>
 
 <style>

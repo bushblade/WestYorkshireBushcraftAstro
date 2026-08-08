@@ -1,5 +1,20 @@
 import gsap from "gsap";
 
+const reduceMotion = window.matchMedia(
+	"(prefers-reduced-motion: reduce)",
+).matches;
+
+document.querySelectorAll<HTMLElement>("[data-nav-link]").forEach((link) => {
+	link.addEventListener("click", () => {
+		const target = link.dataset.navLink;
+		if (target) {
+			document
+				.getElementById(target)
+				?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+		}
+	});
+});
+
 const mm = gsap.matchMedia();
 
 mm.add(
