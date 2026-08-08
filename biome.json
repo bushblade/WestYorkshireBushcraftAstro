@@ -1,12 +1,41 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.1/schema.json",
-  "formatter": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true
-  },
-  "files": {
-    "ignore": ["dist", ".astro", "node_modules"]
-  }
+	"$schema": "https://biomejs.dev/schemas/2.5.7/schema.json",
+	"formatter": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"linter": {
+				"rules": {
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		},
+		{
+			"includes": ["public/favicon.svg", "src/images/*.svg"],
+			"linter": {
+				"rules": {
+					"a11y": {
+						"noSvgWithoutTitle": "off"
+					}
+				}
+			}
+		}
+	],
+	"files": {
+		"includes": [
+			"**",
+			"!**/dist",
+			"!**/.astro",
+			"!**/node_modules",
+			"!opencode.json"
+		]
+	}
 }

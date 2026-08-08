@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import mikehanddrill from "../images/switcher/mikehanddrill.jpg";
+import stonefire from "../images/switcher/stonefire.jpg";
+import willbowl from "../images/switcher/willbowl.jpg";
+
+const images = [
+	{ src: willbowl, alt: "WYB member practising bowl carving" },
+	{ src: mikehanddrill, alt: "Member making fire with a hand drill" },
+	{ src: stonefire, alt: "A stone fire circle" },
+];
+---
+
+<div class="switcher">
+  <div class="spacer">
+    <Image
+      src={images[0].src}
+      alt=""
+      width={800}
+      quality={75}
+      class="spacer-img"
+    />
+  </div>
+  {images.map((image, index) => (
+    <div
+      class="layer"
+      data-layer
+      data-active={index === 0 ? 'true' : 'false'}
+      data-index={index}
+    >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={800}
+        quality={75}
+        loading={index === 0 ? 'eager' : 'lazy'}
+      />
+    </div>
+  ))}
+</div>
+
+<style>
+  .switcher {
+    position: relative;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+    border: none;
+    border-radius: 0.5rem;
+  }
+
+  .spacer :global(.spacer-img) {
+    visibility: hidden;
+  }
+
+  .spacer :global(img) {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    will-change: opacity;
+  }
+
+  .layer :global(img) {
+    min-width: 300px;
+    width: 100%;
+  }
+
+  .layer[data-active='false'] {
+    opacity: 0;
+  }
+
+  @media (min-width: 1400px) {
+    .switcher {
+      width: 90%;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/switcher'
+</script>

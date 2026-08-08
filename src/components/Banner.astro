@@ -1,0 +1,61 @@
+---
+import Logo from "./Logo.astro";
+
+const { title } = Astro.props;
+---
+
+<header class="banner">
+  <div>
+    <div class="logo-wrapper">
+      <Logo />
+    </div>
+    <h1>{title}</h1>
+    <button class="down-button" type="button" data-scroll-to="about"></button>
+  </div>
+</header>
+
+<style>
+  .banner {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+  }
+
+  .banner h1 {
+    font-family: 'Quintessential', cursive;
+    font-weight: 400;
+    margin: 0 0 2.5rem 0;
+    padding: 0;
+    font-size: 4rem;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.35);
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+
+  @media (max-width: 800px) {
+    .banner h1 {
+      font-size: 3rem;
+    }
+    .logo-wrapper :global(svg) {
+      width: 50%;
+      height: 50%;
+    }
+  }
+</style>
+
+<script>
+  document
+    .querySelector<HTMLButtonElement>('[data-scroll-to="about"]')
+    ?.addEventListener('click', () => {
+      document
+        .getElementById('about')
+        ?.scrollIntoView({ behavior: 'smooth' })
+    })
+</script>

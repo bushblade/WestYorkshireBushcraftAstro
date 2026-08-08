@@ -1,17 +1,65 @@
 ---
-
+import About from "../components/About.astro";
+import Banner from "../components/Banner.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import Galleries from "../components/Galleries.astro";
+import { siteMetadata } from "../data/site";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title={siteMetadata.title}>
+  <Banner title={siteMetadata.title} />
+  <section id="about" class="section" style="background: var(--lowOpacityWhite)">
+    <About />
+  </section>
+  <section
+    id="galleries"
+    class="section"
+    style="background: var(--lowOpacityWhite)"
+  >
+    <Galleries />
+  </section>
+  <footer
+    id="contact"
+    class="footer-section"
+    style="background: linear-gradient(45deg, var(--lowOpacityLightGrey) 0%, var(--lowOpacityWhite) 100%)"
+  >
+    <div class="contact-container">
+      <Contact />
+    </div>
+    <Footer />
+  </footer>
+</Layout>
+
+<style>
+  .section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    padding-top: 2rem;
+  }
+
+  .footer-section {
+    position: relative;
+    min-height: 100vh;
+    scroll-snap-align: start;
+  }
+
+  .contact-container {
+    padding-top: 2rem;
+  }
+
+  @media (min-width: 1000px) {
+    .section,
+    .contact-container {
+      padding-top: 3rem;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .section,
+    .contact-container {
+      padding: 4rem 5rem;
+    }
+  }
+</style>

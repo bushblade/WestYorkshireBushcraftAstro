@@ -1,0 +1,225 @@
+<form
+  class="form"
+  name="contact"
+  method="post"
+  action="/"
+  data-netlify="true"
+  data-form
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <input type="hidden" name="Contact" value="contact" />
+  <div class="field" data-field-wrap>
+    <label for="name">Your Name: </label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Your Name"
+      data-field="name"
+    />
+  </div>
+  <div class="field" data-field-wrap>
+    <label for="email">Your Email: </label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="you@youremail.com"
+      data-field="email"
+    />
+  </div>
+  <div class="field" data-field-wrap>
+    <label for="message">Message: </label>
+    <textarea
+      name="message"
+      id="message"
+      placeholder="What do you want to say?"
+      maxlength="200"
+      data-field="message"
+    ></textarea>
+  </div>
+  <div class="btn-field">
+    <span class="btn-wrap">
+      <button class="form-btn" type="submit" data-submit disabled>
+        Send Message
+      </button>
+    </span>
+    <span class="btn-wrap">
+      <button class="form-btn" type="button" data-clear>Clear Form</button>
+    </span>
+  </div>
+</form>
+
+<div class="message-success" data-success hidden>
+  <div class="main">
+    <h2>
+      Message sent! <i class="las la-lg la-envelope-open-text"></i>
+    </h2>
+    <p>
+      Thanks for contacting
+      <br /> West Yorkshire Bushcraft
+    </p>
+    <p>We will be in touch soon.</p>
+  </div>
+</div>
+
+<style>
+  .form {
+    max-width: 800px;
+    margin: auto;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .field {
+    margin: 0 auto;
+  }
+
+  .field label {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.5em;
+  }
+
+  .field input,
+  .field textarea {
+    padding: calc(0.375em - 1px) calc(0.625em - 1px);
+    height: 2.25em;
+    font-family: 'Lora', cursive;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    outline: none;
+    background-color: var(--lowOpacityWhite);
+    border: 0.2rem solid var(--darkGrey);
+    border-radius: 0.5rem;
+    color: #363636;
+    box-shadow: inset 0 1px 5px rgba(10, 10, 10, 0.5);
+    width: 100%;
+  }
+
+  .field textarea {
+    max-height: 600px;
+    min-height: 200px;
+  }
+
+  .field input:focus,
+  .field input:active,
+  .field textarea:focus,
+  .field textarea:active {
+    outline: none;
+  }
+
+  .field[data-valid='empty'] input,
+  .field[data-valid='empty'] textarea {
+    border-color: var(--darkGrey);
+  }
+
+  .field[data-valid='valid'] input,
+  .field[data-valid='valid'] textarea {
+    border-color: var(--lowOpacityGreen);
+  }
+
+  .field[data-valid='invalid'] input,
+  .field[data-valid='invalid'] textarea {
+    border-color: #a94442;
+  }
+
+  .field[data-valid='empty'] input:focus,
+  .field[data-valid='empty'] input:active,
+  .field[data-valid='empty'] textarea:focus,
+  .field[data-valid='empty'] textarea:active {
+    box-shadow: inset 0 1px 5px rgba(10, 10, 10, 0.1);
+  }
+
+  .field[data-valid='valid'] input:focus,
+  .field[data-valid='valid'] input:active,
+  .field[data-valid='valid'] textarea:focus,
+  .field[data-valid='valid'] textarea:active {
+    box-shadow: inset 0 1px 5px var(--green);
+  }
+
+  .field[data-valid='invalid'] input:focus,
+  .field[data-valid='invalid'] input:active,
+  .field[data-valid='invalid'] textarea:focus,
+  .field[data-valid='invalid'] textarea:active {
+    box-shadow: inset 0 1px 5px rgba(169, 68, 66, 0.5);
+  }
+
+  .btn-field {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-wrap {
+    margin: 0 1rem 1rem 0;
+  }
+
+  .form-btn {
+    color: black;
+    font-family: 'Quintessential', cursive;
+    font-size: 1.2rem;
+    outline: none;
+    border: 0.2rem solid black;
+    border-radius: 1.5rem;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    background: transparent;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+  }
+
+  .form-btn:focus {
+    outline: none;
+  }
+
+  .form-btn:hover:not(:disabled) {
+    background: var(--lowOpacityKahki);
+    box-shadow: 0 0 0.1rem 0.3rem var(--lowOpacityGreen);
+  }
+
+  .form-btn:disabled {
+    cursor: not-allowed;
+  }
+
+  .message-success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .message-success[hidden] {
+    display: none;
+  }
+
+  .message-success .main {
+    padding: 1rem 1rem 0 1rem;
+    border-radius: 0.5rem;
+    border: 0.2rem solid var(--darkGrey);
+    box-shadow: 0px 0px 89px -17px rgba(0, 0, 0, 0.5);
+    background: var(--lowOpacityWhite);
+    padding: 3rem;
+    text-align: center;
+    height: 100%;
+    max-width: 90vw;
+  }
+
+  .message-success .main h2 {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 780px) {
+    .btn-wrap {
+      margin: 0 0.5rem 1rem 0;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/form'
+</script>

@@ -1,0 +1,92 @@
+---
+import { links } from "../data/site";
+import ImageSwitcher from "./ImageSwitcher.astro";
+---
+
+<div class="about">
+  <div class="two-column">
+    <div class="cell left with-padding">
+      <article>
+        <h2>Established June 2012</h2>
+        <p>
+          The West Yorkshire Bushcraft group was created in 2012 to bring
+          together those interested in Bushcraft and Bushcraft related skills
+          in and around West Yorkshire. We are not an organization, business or
+          charity, just a group of like minded individuals looking to share
+          skills and experience.{' '}
+        </p>
+      </article>
+      <article>
+        <h2>What we do</h2>
+        <p>
+          We are very fortunate to have access to a large area of private
+          woodland in which we host regular monthly meets. There is no charge
+          to members for attending meets, though donations towards maintenance
+          of the group are welcome.
+        </p>
+        <p>
+          For more information or to enquire about becoming a member please get
+          in touch with our{' '}
+          <a
+            href={links.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            online community
+          </a>
+          ,{' '}
+          <a href={links.email}>email us</a> or fill in the contact form at the
+          bottom of the page.
+        </p>
+      </article>
+    </div>
+    <div class="cell right with-padding">
+      <ImageSwitcher />
+    </div>
+  </div>
+</div>
+
+<style>
+  .about {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .two-column {
+    display: grid;
+    position: relative;
+    grid-gap: 3rem;
+    height: 100%;
+    width: 100%;
+    padding: 0 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'left left' 'right right';
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .cell.left {
+    grid-area: left;
+  }
+
+  .cell.right {
+    grid-area: right;
+  }
+
+  .with-padding {
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 1000px) {
+    .two-column {
+      padding: 0 3rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'left right';
+    }
+  }
+</style>

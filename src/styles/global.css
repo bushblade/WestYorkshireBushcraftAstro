@@ -1,0 +1,138 @@
+@import "line-awesome/dist/line-awesome/css/line-awesome.css";
+
+:root {
+	--kahki: #decd87;
+	--lowOpacityKahki: rgba(222, 205, 135, 0.5);
+	--green: #668000;
+	--lowOpacityGreen: rgba(102, 128, 0, 0.5);
+	--darkGrey: #363636;
+	--lowOpacityDarkGrey: rgba(54, 54, 54, 0.9);
+	--lightGrey: #666666;
+	--lowOpacityLightGrey: rgba(102, 102, 102, 0.9);
+	--lowOpacityWhite: rgba(239, 239, 239, 0.7);
+	--white: rgba(239, 239, 239, 1);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Lora", serif;
+	margin: 0;
+	background: lightslategray;
+	overflow-x: hidden;
+}
+
+h2 {
+	font-size: 1.8rem;
+	white-space: nowrap;
+	font-family: "Quintessential", cursive;
+	background: linear-gradient(
+		180deg,
+		transparent 81%,
+		var(--lowOpacityGreen) 81%,
+		var(--lowOpacityGreen) 90%,
+		transparent 90%
+	);
+}
+
+@media (min-width: 700px) {
+	h2 {
+		font-size: 2rem;
+	}
+}
+
+p {
+	font-size: 1.2rem;
+}
+
+@media (min-width: 700px) {
+	p {
+		font-size: 1.4rem;
+	}
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 500;
+	color: black;
+	background: linear-gradient(
+		180deg,
+		transparent 81%,
+		var(--lowOpacityGreen) 81%,
+		var(--lowOpacityGreen) 90%,
+		transparent 90%
+	);
+	transition: background 0.2s ease-in-out;
+}
+
+a:active,
+a:visited {
+	color: black;
+}
+
+a:hover {
+	background: linear-gradient(
+		180deg,
+		var(--lowOpacityKahki) 81%,
+		var(--green) 81%,
+		var(--green) 90%,
+		transparent 90%
+	);
+	color: black;
+}
+
+@keyframes btnAnimation {
+	0% {
+		transform: translate(0, 0) rotate(45deg);
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	80% {
+		transform: translate(0, 2rem) rotate(45deg);
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.down-button {
+	position: relative;
+	display: block;
+	margin: auto;
+	padding: 2rem 1rem;
+	background: transparent;
+	border: 0.2rem solid black;
+	border-radius: 1.5rem;
+	outline: none;
+	cursor: pointer;
+	transition:
+		box-shadow 0.3s ease-in-out,
+		background 0.3s ease-in-out;
+}
+
+.down-button:hover {
+	box-shadow: 0 0 0.1rem 0.3rem var(--lowOpacityGreen);
+	background: var(--lowOpacityKahki);
+}
+
+.down-button::before {
+	position: absolute;
+	top: 0.5rem;
+	left: 50%;
+	content: "";
+	width: 1rem;
+	height: 1rem;
+	margin-left: -0.5rem;
+	border: 0.2rem solid black;
+	border-top: transparent;
+	border-left: transparent;
+	transform: rotate(45deg);
+	animation: btnAnimation 2s infinite;
+	box-sizing: border-box;
+}

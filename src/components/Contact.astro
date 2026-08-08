@@ -1,0 +1,74 @@
+---
+import ContactForm from "./ContactForm.astro";
+import Poem from "./Poem.astro";
+---
+
+<div class="contact">
+  <header>
+    <h2 data-contact-heading>Contact West Yorkshire Bushcraft</h2>
+    <p>For questions, comments and membership enquiries please get in touch...</p>
+  </header>
+  <div class="two-column">
+    <div class="cell left">
+      <ContactForm />
+    </div>
+    <div class="cell right">
+      <Poem />
+    </div>
+  </div>
+</div>
+
+<style>
+  .contact header {
+    width: 100%;
+    height: 100%;
+    padding: 0 2rem 1rem 2rem;
+  }
+
+  .two-column {
+    display: grid;
+    position: relative;
+    grid-gap: 0;
+    height: 100%;
+    width: 100%;
+    padding: 0 0.5rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'left left' 'right right';
+  }
+
+  .cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .cell.left {
+    grid-area: left;
+  }
+
+  .cell.right {
+    grid-area: right;
+  }
+
+  @media (min-width: 1000px) {
+    .contact header {
+      padding: 0 3rem 1rem 3rem;
+    }
+    .two-column {
+      padding: 0 3rem;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: 'left right';
+    }
+  }
+</style>
+
+<script>
+  import { isMobile } from '../scripts/util'
+
+  const heading = document.querySelector('[data-contact-heading]')
+  const update = () => {
+    if (heading) heading.textContent = `Contact ${isMobile(800) ? 'WYB' : 'West Yorkshire Bushcraft'}`
+  }
+  update()
+  window.addEventListener('resize', update)
+</script>
