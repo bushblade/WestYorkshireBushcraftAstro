@@ -28,6 +28,9 @@ const bg = await getImage({
     />
     <title>{`${title} | ${siteMetadata.title}`}</title>
     <meta name="description" content={siteMetadata.description} />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={siteMetadata.description} />
     <meta property="og:type" content="website" />
@@ -108,6 +111,12 @@ const bg = await getImage({
     }
     to {
       opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .background {
+      animation: none;
     }
   }
 </style>

@@ -1,12 +1,10 @@
 @import "line-awesome/dist/line-awesome/css/line-awesome.css";
 
 :root {
-	--kahki: #decd87;
 	--lowOpacityKahki: rgba(222, 205, 135, 0.5);
 	--green: #668000;
 	--lowOpacityGreen: rgba(102, 128, 0, 0.5);
 	--darkGrey: #363636;
-	--lowOpacityDarkGrey: rgba(54, 54, 54, 0.9);
 	--lightGrey: #666666;
 	--lowOpacityLightGrey: rgba(102, 102, 102, 0.9);
 	--lowOpacityWhite: rgba(239, 239, 239, 0.7);
@@ -109,11 +107,15 @@ a:hover {
 	background: transparent;
 	border: 0.2rem solid black;
 	border-radius: 1.5rem;
-	outline: none;
 	cursor: pointer;
 	transition:
 		box-shadow 0.3s ease-in-out,
 		background 0.3s ease-in-out;
+}
+
+.down-button:focus-visible {
+	outline: 2px solid black;
+	outline-offset: 2px;
 }
 
 .down-button:hover {
@@ -135,4 +137,10 @@ a:hover {
 	transform: rotate(45deg);
 	animation: btnAnimation 2s infinite;
 	box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.down-button::before {
+		animation: none;
+	}
 }

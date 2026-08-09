@@ -38,6 +38,12 @@ if (form) {
 		const value =
 			state.text.length === 0 ? "empty" : state.valid ? "valid" : "invalid";
 		wrap.setAttribute("data-valid", value);
+		const invalid = value === "invalid";
+		el.setAttribute("aria-invalid", String(invalid));
+		const error = wrap.querySelector<HTMLElement>(
+			`[data-error="${el.getAttribute("name")}"]`,
+		);
+		if (error) error.hidden = !invalid;
 	};
 
 	const updateSubmit = () => {
@@ -90,7 +96,10 @@ if (form) {
 			.then((res) => {
 				if (res.ok) {
 					clearForm();
-					if (success) success.hidden = false;
+					if (success) {
+						success.hidden = false;
+						success.focus({ preventScroll: true });
+					}
 					form.hidden = true;
 				} else {
 					throw Error(

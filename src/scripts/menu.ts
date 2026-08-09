@@ -37,6 +37,8 @@ mm.add(
 		const setOpen = (value: boolean) => {
 			open = value;
 			button.setAttribute("data-open", String(value));
+			button.setAttribute("aria-expanded", String(value));
+			drawer.inert = !value;
 			gsap.to(drawer, {
 				xPercent: value ? 0 : -100,
 				duration,

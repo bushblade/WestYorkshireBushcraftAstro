@@ -16,6 +16,7 @@ if (layers.length > 0) {
 			const show = (i: number, duration: number) => {
 				layers.forEach((layer, layerIndex) => {
 					layer.setAttribute("data-active", String(layerIndex === i));
+					layer.setAttribute("aria-hidden", String(layerIndex !== i));
 					gsap.to(layer, {
 						autoAlpha: layerIndex === i ? 1 : 0,
 						duration,
@@ -31,8 +32,26 @@ if (layers.length > 0) {
 			};
 
 			if (noPreference) {
-				const interval = setInterval(advance, 4000);
-				return () => clearInterval(interval);
+				let interval = window.setInterval(advance, 4000);
+				const switcher = document.querySelector<HTMLElement>("[data-switcher]");
+				const pause = () => window.clearInterval(interval);
+				const resume = () => {
+					pause();
+					interval = window.setInterval(advance, 4000);
+				};
+				const onPause = () => pause();
+				const onResume = () => resume();
+				switcher?.addEventListener("pointerenter", onPause);
+				switcher?.addEventListener("pointerleave", onResume);
+				switcher?.addEventListener("focusin", onPause);
+				switcher?.addEventListener("focusout", onResume);
+				return () => {
+					pause();
+					switcher?.removeEventListener("pointerenter", onPause);
+					switcher?.removeEventListener("pointerleave", onResume);
+					switcher?.removeEventListener("focusin", onPause);
+					switcher?.removeEventListener("focusout", onResume);
+				};
 			}
 		},
 	);

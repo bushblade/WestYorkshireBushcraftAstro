@@ -13,6 +13,7 @@ mm.add("(prefers-reduced-motion: no-preference)", () => {
 	const paths = gsap.utils.toArray<SVGPathElement>(
 		".logo-tree-left path, .logo-tree-right path",
 	);
+	gsap.set(".logo-bg, .logo-seed", { autoAlpha: 0 });
 	gsap.set(paths, {
 		strokeDasharray: 100,
 		strokeDashoffset: 100,

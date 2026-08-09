@@ -11,7 +11,12 @@ const images = [
 ];
 ---
 
-<div class="switcher">
+<div
+  class="switcher"
+  tabindex="0"
+  aria-label="Gallery of images from WYB meets"
+  data-switcher
+>
   <div class="spacer">
     <Image
       src={images[0].src}
@@ -27,6 +32,7 @@ const images = [
       data-layer
       data-active={index === 0 ? 'true' : 'false'}
       data-index={index}
+      aria-hidden={index === 0 ? 'false' : 'true'}
     >
       <Image
         src={image.src}
@@ -70,6 +76,11 @@ const images = [
     min-width: 300px;
     width: 100%;
     height: auto;
+  }
+
+  .switcher:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
   }
 
   .layer[data-active='false'] {

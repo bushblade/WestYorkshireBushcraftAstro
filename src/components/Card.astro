@@ -4,13 +4,27 @@ interface Props {
 	link: string;
 	image: string;
 	alt: string;
+	width: number | string;
+	height: number | string;
 }
-const { title, link, image, alt } = Astro.props;
+const { title, link, image, alt, width, height } = Astro.props;
 ---
 
 <div class="card">
-  <a href={link} target="_blank" rel="noopener noreferrer" title={title}>
-    <img src={image} alt={alt} title={title} />
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`${title} gallery (opens in a new tab)`}
+  >
+    <img
+      src={image}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+    />
   </a>
   <h3>{title}</h3>
 </div>

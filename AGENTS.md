@@ -40,7 +40,7 @@ src/
   images/         source images (copied from original repo)
   layouts/        Layout.astro (head/SEO + page shell)
   pages/          index.astro, 404.astro
-  scripts/        vanilla TS: util, menu, logo, switcher, form
+  scripts/        vanilla TS: menu, logo, switcher, form
   styles/         global.css
 public/           manifest.webmanifest, icons/, favicons
 ```

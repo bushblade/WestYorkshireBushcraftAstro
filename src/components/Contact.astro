@@ -5,7 +5,10 @@ import Poem from "./Poem.astro";
 
 <div class="contact">
   <header>
-    <h2 data-contact-heading>Contact West Yorkshire Bushcraft</h2>
+    <h2 id="contact-heading" data-contact-heading>
+      <span class="contact-full">Contact West Yorkshire Bushcraft</span>
+      <span class="contact-short">Contact WYB</span>
+    </h2>
     <p>For questions, comments and membership enquiries please get in touch...</p>
   </header>
   <div class="two-column">
@@ -50,6 +53,10 @@ import Poem from "./Poem.astro";
     grid-area: right;
   }
 
+  .contact-short {
+    display: none;
+  }
+
   @media (min-width: 1000px) {
     .contact header {
       padding: 0 3rem 1rem 3rem;
@@ -60,15 +67,13 @@ import Poem from "./Poem.astro";
       grid-template-areas: 'left right';
     }
   }
-</style>
 
-<script>
-  import { isMobile } from '../scripts/util'
-
-  const heading = document.querySelector('[data-contact-heading]')
-  const update = () => {
-    if (heading) heading.textContent = `Contact ${isMobile(800) ? 'WYB' : 'West Yorkshire Bushcraft'}`
+  @media (max-width: 800px) {
+    .contact-full {
+      display: none;
+    }
+    .contact-short {
+      display: inline;
+    }
   }
-  update()
-  window.addEventListener('resize', update)
-</script>
+</style>

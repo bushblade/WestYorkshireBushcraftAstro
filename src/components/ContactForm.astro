@@ -15,8 +15,13 @@
       name="name"
       id="name"
       placeholder="Your Name"
+      aria-invalid="false"
+      aria-describedby="name-error"
       data-field="name"
     />
+    <small class="field-error" id="name-error" data-error="name" hidden
+      >Please enter your name.</small
+    >
   </div>
   <div class="field" data-field-wrap>
     <label for="email">Your Email: </label>
@@ -25,8 +30,13 @@
       name="email"
       id="email"
       placeholder="you@youremail.com"
+      aria-invalid="false"
+      aria-describedby="email-error"
       data-field="email"
     />
+    <small class="field-error" id="email-error" data-error="email" hidden
+      >Please enter a valid email address.</small
+    >
   </div>
   <div class="field" data-field-wrap>
     <label for="message">Message: </label>
@@ -35,8 +45,13 @@
       id="message"
       placeholder="What do you want to say?"
       maxlength="200"
+      aria-invalid="false"
+      aria-describedby="message-error"
       data-field="message"
     ></textarea>
+    <small class="field-error" id="message-error" data-error="message" hidden
+      >Please enter a message.</small
+    >
   </div>
   <div class="btn-field">
     <span class="btn-wrap">
@@ -50,10 +65,11 @@
   </div>
 </form>
 
-<div class="message-success" data-success hidden>
+<div class="message-success" data-success hidden role="status" tabindex="-1">
   <div class="main">
     <h2>
-      Message sent! <i class="las la-lg la-envelope-open-text"></i>
+      Message sent!
+      <i class="las la-lg la-envelope-open-text" aria-hidden="true"></i>
     </h2>
     <p>
       Thanks for contacting
@@ -89,7 +105,6 @@
     font-family: 'Lora', cursive;
     font-size: 1.3rem;
     line-height: 1.5;
-    outline: none;
     background-color: var(--lowOpacityWhite);
     border: 0.2rem solid var(--darkGrey);
     border-radius: 0.5rem;
@@ -103,11 +118,21 @@
     min-height: 200px;
   }
 
-  .field input:focus,
-  .field input:active,
-  .field textarea:focus,
-  .field textarea:active {
-    outline: none;
+  .field .field-error {
+    display: block;
+    margin: 0.5em;
+    color: #a94442;
+    font-weight: 600;
+  }
+
+  .field .field-error[hidden] {
+    display: none;
+  }
+
+  .field input:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--darkGrey);
+    outline-offset: 2px;
   }
 
   .field[data-valid='empty'] input,
@@ -162,7 +187,6 @@
     color: black;
     font-family: 'Quintessential', cursive;
     font-size: 1.2rem;
-    outline: none;
     border: 0.2rem solid black;
     border-radius: 1.5rem;
     padding: 0.3rem 1rem;
@@ -174,8 +198,9 @@
     transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
   }
 
-  .form-btn:focus {
-    outline: none;
+  .form-btn:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 2px;
   }
 
   .form-btn:hover:not(:disabled) {

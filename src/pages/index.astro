@@ -20,16 +20,17 @@ import Layout from "../layouts/Layout.astro";
   >
     <Galleries />
   </section>
-  <footer
+  <section
     id="contact"
     class="footer-section"
+    aria-labelledby="contact-heading"
     style="background: linear-gradient(45deg, var(--lowOpacityLightGrey) 0%, var(--lowOpacityWhite) 100%)"
   >
     <div class="contact-container">
       <Contact />
     </div>
     <Footer />
-  </footer>
+  </section>
 </Layout>
 
 <style>
