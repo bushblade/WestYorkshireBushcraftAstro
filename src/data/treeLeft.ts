@@ -115,11 +115,3 @@ export const treeLeft: TreePath[] = [
 		fillRule: "evenodd",
 	},
 ];
-
-export interface TreePath {
-	pathLength: string;
-	d: string;
-	id?: string;
-	fillOpacity?: string;
-	fillRule?: string;
-}

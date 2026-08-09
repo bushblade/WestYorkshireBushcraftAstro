@@ -1,10 +1,5 @@
-export interface TreePath {
-	pathLength: string;
-	d: string;
-	id?: string;
-	fillOpacity?: string;
-	fillRule?: string;
-}
+import type { TreePath } from "./treeLeft";
+
 export const treeRight: TreePath[] = [
 	{
 		pathLength: "100",
