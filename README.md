@@ -2,7 +2,7 @@
 
 A faithful Gatsby→Astro rebuild of the West Yorkshire Bushcraft website.
 
-- **Original**: `/home/will/Dropbox/webProjects/WYB-website` (Gatsby/React) and https://www.westyorkshirebushcraft.co.uk/
+- **Original**: https://www.westyorkshirebushcraft.co.uk/
 - **Goal**: pixel-faithful single-page Astro site (index + 404), vanilla TS only, GSAP for animations, Netlify + Netlify Forms.
 
 ## Commands

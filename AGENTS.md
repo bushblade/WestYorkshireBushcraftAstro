@@ -4,8 +4,8 @@ Guidance for AI agents working in this repo. This is a faithful Gatsby→Astro r
 
 ## Project
 
-- **Current state**: implemented. The authoritative reference for the original is `/home/will/Dropbox/webProjects/WYB-website` and the live site (below).
-- **Source of truth for the original**: `/home/will/Dropbox/webProjects/WYB-website` (Gatsby/React) and the live site https://www.westyorkshirebushcraft.co.uk/
+- **Current state**: implemented. The authoritative reference for the original is the live site (below).
+- **Source of truth for the original**: the live site https://www.westyorkshirebushcraft.co.uk/
 - **Goal**: pixel-faithful single-page Astro site (index + 404), vanilla TS only, GSAP for animations, Netlify + Netlify Forms.
 
 ## Commands
